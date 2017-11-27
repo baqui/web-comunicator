@@ -1,0 +1,47 @@
+export const WebCommunicatorBasicTheme = {
+  colors: {
+    background: 'rgb(245, 245, 245)',
+    backgroundTable: 'rgb(238, 238, 238)',
+    line: 'rgb(204, 204, 204)',
+    dotLine: 'rgb(153, 153, 153)',
+    copyText: 'rgb(119, 119, 119)',
+    link: 'rgb(102, 102, 102)',
+    label: 'rgb(85, 85, 85)',
+    standard: 'rgb(51, 51, 51)',
+    selection: 'rgb(0, 0, 102)',
+    infographic: 'rgb(48, 80, 204)',
+    infographicHighlight: 'rgb(85, 136, 255)',
+    secondarySelection: 'rgb(204, 219, 255)',
+    error: 'rgb(170, 0, 0)',
+    danger: 'rgb(221, 51, 0)',
+    dangerLight: 'rgb(255, 102, 0)',
+    warning: 'rgb(255, 179, 0)',
+    success: 'rgb(34, 102, 0)',
+    successLight: 'rgb(51, 153, 51)',
+    infographicsSuccess: 'rgb(119, 204, 102)',
+    defaultFontColor: 'rgb(51, 51, 51)',
+  },
+  fonts: {
+    defaultFont: "'Titillium', sans-serif",
+    rythm: {
+      base: 1,
+      phi: 1.618,
+      golden: 1.618,
+      doubleOctave: 4,
+      majorTwelfth: 3,
+      majorEleventh: 2.6,
+      majorTenth: 2.5,
+      octave: 2,
+      majorSeventh: 1.875,
+      minorSeventh: 1.778,
+      majorSixth: 1.6,
+      fifth: 1.5,
+      augmentedFourth: 1.414,
+      fourth: 1.333,
+      majorThird: 1.25,
+      minorThird: 1.2,
+      majorSecond: 1.125,
+      minorSecond: 1.067
+    }
+  }
+}
