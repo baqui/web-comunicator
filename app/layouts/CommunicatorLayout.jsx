@@ -17,7 +17,7 @@ const links = [
   }
 ];
 
-export const MarketplaceLayout = (props) => (
+export const CommunicatorLayout = (props) => (
   <ThemeProvider theme={theme} >
     <section className="main-page-wrapper">
       <Nav links={links} />
@@ -26,6 +26,6 @@ export const MarketplaceLayout = (props) => (
   </ThemeProvider>
 )
 
-MarketplaceLayout.propTypes = {
+CommunicatorLayout.propTypes = {
   children: PropTypes.element.isRequired
 }

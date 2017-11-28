@@ -54,7 +54,7 @@ class LoginForm extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
-    window.location = '/comunicator';
+    window.location = '/communicator';
   }
 }
 

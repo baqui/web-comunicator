@@ -7,13 +7,10 @@ export const User = new Record({
   lastName: ''
 });
 
-export const Point = new Record({
-  lat: 0.0,
-  lng: 0.0
-})
-
-export const RequestPoint = new Record({
-  point: new Point(),
-  thumbnail: '',
-  link: ''
+export const Contact = new Record({
+  id: -1,
+  email: '',
+  name: '',
+  avatar: '',
+  status: false
 });

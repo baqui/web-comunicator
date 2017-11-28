@@ -33,7 +33,7 @@ const extractSass = new ExtractTextPlugin({
 
 const plugins = [
   new HtmlWebpackPlugin({title: 'Web communicator Home', template: 'app/index.html', chunks: ['home-index'], filename: 'index.html'}),
-  new HtmlWebpackPlugin({title: 'Web communicator App', template: 'app/index.html', chunks: ['marketplace/marketplace-index'], filename: 'marketplace/index.html'}),
+  new HtmlWebpackPlugin({title: 'Web communicator App', template: 'app/index.html', chunks: ['communicator/communicator-index'], filename: 'communicator/index.html'}),
   new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
@@ -133,7 +133,7 @@ module.exports = [
   {
     entry: {
       'home-index': './app/bundles/home-index.js',
-      'marketplace/marketplace-index': './app/bundles/marketplace-index.js'
+      'communicator/communicator-index': './app/bundles/communicator-index.js'
     },
     resolve: {
       extensions: ['.js', '.jsx']
@@ -152,8 +152,8 @@ module.exports = [
             from: /^\/$/,
             to: '/index.html'
           }, {
-            from: /^\/marketplace/,
-            to: '/marketplace/index.html'
+            from: /^\/communicator/,
+            to: '/communicator/index.html'
           }, {
             from: /./,
             to: '/index.html'

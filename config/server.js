@@ -9,7 +9,7 @@ const app = express(),
       NODE_ENV = process.env.NODE_ENV || 'development';
       DIST_DIR  = path.join(__dirname, "..", "dist"),
       HOME_HTML_FILE = path.join(DIST_DIR, "index.html"),
-      MARKETPLACE_HTML_FILE = path.join(DIST_DIR, "marketplace", "index.html"),
+      COMMUNICATOR_HTML_FILE = path.join(DIST_DIR, "communicator", "index.html"),
 
       PRODUCTION_BUILD = process.env.NODE_ENV === "production",
       PRODUCTION_API = process.env.API_ENV === "production",
@@ -22,7 +22,7 @@ if (PRODUCTION_BUILD) {
   app.use(cookieParser());
   app.use(authChecker);
   app.use(express.static(DIST_DIR, { maxAge: settings.static_max_age }));
-  app.get("/marketplace*", (req, res) => res.sendFile(MARKETPLACE_HTML_FILE));
+  app.get("/communicator*", (req, res) => res.sendFile(COMMUNICATOR_HTML_FILE));
   app.get("*", (req, res) => res.sendFile(HOME_HTML_FILE));
 }
 

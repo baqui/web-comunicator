@@ -4,14 +4,10 @@ import {urls} from './urls';
 import './kakapo-server';
 
 
-export default class MarketPlaceRestClient {
+export default class CommunicatorRestClient {
 
-  static getOffersList() {
-    return this.makeRequest( urls.OFFERS_LIST, { method: 'GET' });
-  }
-
-  static getAllRequestsPoints() {
-    return this.makeRequest( urls.REQUSTS_POINTS, { method: 'GET' });
+  static getAllContactsData() {
+    return this.makeRequest( urls.CONTACTS, { method: 'GET' });
   }
 
   static getSelfUser() {

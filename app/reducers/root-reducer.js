@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
-import {requests} from './requests';
 
-import user from './user';
+import {user} from './user';
+import {contacts} from './contacts';
 
 export default combineReducers({
   user,
-  requests
+  contacts
 });

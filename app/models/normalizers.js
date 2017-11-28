@@ -1,20 +1,17 @@
 import { schema, normalize } from 'normalizr';
 import { Map, List } from 'immutable';
-import { Point, RequestPoint } from './records';
+import { Contact } from './records';
 
-const request_point = new schema.Entity('requestPoints', {}, { idAttribute: 'id'});
+const contact = new schema.Entity('contacts', {}, { idAttribute: 'id'});
 
-export const normalizedRequestPointsResponse = (response) => {
-  let normalized = normalize(response.data, [request_point]);
-  return List( normalized.result.map(id => toRequestPoint( normalized.entities.requestPoints[id]) ) );
+export const normalizedContactsListResponse = (response) => {
+  let normalized = normalize(response.data, [contact]);
+  return List( normalized.result.map(id => toContact( normalized.entities.contacts[id]) ) );
 }
 
-const toPoint = (obj) => new Point(obj);
-
-const toRequestPoint = (obj) => (
-  new RequestPoint({
-    ...obj,
-    point: toPoint(obj.point)
+const toContact = (obj) => (
+  new Contact({
+    ...obj
   })
 );
 
