@@ -37,6 +37,5 @@ class Contacts extends PureComponent {
 
 export default styled(Contacts)`
   box-sizing: border-box;
-  border: 1px solid black;
   background-color: ${props => props.theme.colors.backgroundTable};
 `

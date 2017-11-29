@@ -36,18 +36,18 @@ class CommunicatorPage extends PureComponent {
 export default styled(CommunicatorPage)`
   box-sizing: border-box;
   height: calc(100vh - 90px);
+  background-color: ${props => props.theme.colors.backgroundTable};
   ${Contacts} {
-    ${grid.breakpoints({df: 3}, 12, '0px')};
+    ${grid.breakpoints({df: 3}, 12, '1rem')};
     height: 100%;
     //overflow-y: scroll;
   }
   ${Messages} {
-    ${grid.breakpoints({df: 6}, 12, '0px')};
+    ${grid.breakpoints({df: 6}, 12, '1rem')};
     height: 100%;
-    overflow: hidden;
   }
   ${Profile} {
-    ${grid.breakpoints({df: 3}, 12, '0px')};
+    ${grid.breakpoints({df: 3}, 12, '1rem')};
     height: 100%;
   }
 `

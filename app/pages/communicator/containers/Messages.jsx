@@ -2,6 +2,8 @@ import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {TextBanner} from '../../../components/TextBanner/TextBanner';
+import {MessagesContainer} from '../components/Messages';
+import SendMessage from './SendMessage';
 
 const mapStateToProps = (state) => ({});
 const mapDispatchToProps = (dispatch) => ({});
@@ -20,7 +22,10 @@ class Messages extends PureComponent {
   render() {
     return (
       <section className={this.props.className}>
-        <TextBanner title="Messages"/>
+        <MessagesContainer>
+          MESSEGES CONTAINER
+        </MessagesContainer>
+        <SendMessage />
       </section>
     )
   }
@@ -28,5 +33,9 @@ class Messages extends PureComponent {
 
 export default styled(Messages)`
   box-sizing: border-box;
-  border: 1px solid black;
+  position: relative;
+  ${SendMessage} {
+    position: absolute;
+    bottom: 30px;
+  }
 `
