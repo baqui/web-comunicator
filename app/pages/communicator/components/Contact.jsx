@@ -2,16 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import AVATAR_PLACEHOLDER from '../../../assets/images/avatar-placeholder.png';
 import {grid} from '../../../styles/grid';
+import t from '../../../utils/translate';
 
 const Contact = ({ className, email, name, status, avatar }) => {
   return (
     <div className={className}>
       <Avatar>
-        <img src={avatar || AVATAR_PLACEHOLDER} alt="avatar-placeholder" />
+        <img src={avatar || AVATAR_PLACEHOLDER} alt="avatar" />
       </Avatar>
       <UserInfoWrapper>
         <Name>{name}</Name>
-        <Status status={status}>{status}</Status>
+        <Status status={status}>{t(status)}</Status>
       </UserInfoWrapper>
     </div>
   )
@@ -38,9 +39,9 @@ const Name = styled.h3`
 `
 
 const statusColors = {
-  available: 'green',
-  unavailable: 'red',
-  busy: 'yellow'
+  available: 'chartreuse',
+  unavailable: 'crimson',
+  busy: 'gold'
 }
 
 const Status = styled.span`
@@ -55,7 +56,7 @@ const Status = styled.span`
     border: 1px solid rgba(0,0,0,.5);
     border-radius: 50%;
     margin-right: 8px;
-    background-color: ${ props => statusColors[props.status]};
+    background-color: ${ props => statusColors[props.status] ? statusColors[props.status] : 'black'};
     display: inline-block;
     vertical-align: middle;
   }
@@ -73,6 +74,7 @@ export default styled(Contact)`
   background: white;
   cursor: pointer;
   transition: background .3s;
+  border-left: 4px solid ${ props => props.theme.colors.border };
   &:hover {
     background: #e3e1e9;
   }

@@ -1,7 +1,10 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {TextBanner} from '../../../components/TextBanner/TextBanner';
+
+import EditProfile from './EditProfile';
+import EditColors from './EditColors';
+import EditLanguage from './EditLanguage';
 
 const mapStateToProps = (state) => ({});
 const mapDispatchToProps = (dispatch) => ({});
@@ -20,7 +23,9 @@ class Profile extends PureComponent {
   render() {
     return (
       <section className={this.props.className}>
-        <TextBanner title="Profile"/>
+        <EditProfile />
+        <EditColors />
+        <EditLanguage />
       </section>
     )
   }
@@ -28,5 +33,4 @@ class Profile extends PureComponent {
 
 export default styled(Profile)`
   box-sizing: border-box;
-  border: 1px solid black;
 `

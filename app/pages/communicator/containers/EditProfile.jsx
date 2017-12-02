@@ -1,11 +1,16 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {TextBanner} from '../../../components/TextBanner/TextBanner';
-import {MessagesContainer} from '../components/Messages';
-import SendMessage from './SendMessage';
 import { getChosenLanguage } from '../../../selectors/userPreferences';
 
+import Profile from '../components/Profile';
+
+const profileData = {
+  name: 'Wojciech Bakłażec',
+  email: 'test@wp.pl',
+  avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/to_soham/128.jpg',
+  status: 'available',
+}
 
 const mapStateToProps = (state) => ({
   language: getChosenLanguage(state)
@@ -13,33 +18,25 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({});
 
 @connect(mapStateToProps, mapDispatchToProps)
-class Messages extends PureComponent {
+class EditProfile extends PureComponent {
 
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    console.log("Messages DidMount");
+    console.log("Editprofile didmount");
   }
 
   render() {
     return (
       <section className={this.props.className}>
-        <MessagesContainer>
-          MESSEGES CONTAINER
-        </MessagesContainer>
-        <SendMessage />
+        <Profile profile={profileData} />
       </section>
     )
   }
 }
 
-export default styled(Messages)`
-  box-sizing: border-box;
-  position: relative;
-  ${SendMessage} {
-    position: absolute;
-    bottom: 30px;
-  }
+export default styled(EditProfile)`
+  width: 100%;
 `

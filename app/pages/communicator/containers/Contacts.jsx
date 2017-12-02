@@ -1,15 +1,17 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
-import {TextBanner} from '../../../components/TextBanner/TextBanner';
 
-import {getContactsList} from '../../../selectors/contacts';
-import {contactsListFetchData} from '../../../actions/contacts-actions';
+
+import { getChosenLanguage } from '../../../selectors/userPreferences';
+import { getContactsList } from '../../../selectors/contacts';
+import { contactsListFetchData } from '../../../actions/contacts-actions';
 
 import Contact from '../components/Contact';
 
 const mapStateToProps = (state) => ({
-  contactsList: getContactsList(state)
+  contactsList: getContactsList(state),
+  language: getChosenLanguage(state)
 });
 const mapDispatchToProps = (dispatch) => ({
   getContacts: () => dispatch( contactsListFetchData() )

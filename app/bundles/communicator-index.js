@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from '../Store';
 
 import CommunicatorPage from '../pages/communicator/CommunicatorPage';
-import { CommunicatorLayout } from '../layouts/CommunicatorLayout';
+import CommunicatorLayout from '../layouts/CommunicatorLayout';
 
 const app_container = document.getElementById('app');
 
