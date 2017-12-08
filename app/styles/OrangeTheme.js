@@ -2,7 +2,9 @@ export const OrangeTheme = {
   colors: {
     backgroundTable: 'rgb(238, 238, 238)',
     label: 'rgb(85, 85, 85)',
-    border: '#FFAD69'
+    border: '#C0671E',
+    menuBase: '#FFAD69',
+    menuSecond: '#C0671E'
   },
   fonts: {
     defaultFont: "'Titillium', sans-serif",

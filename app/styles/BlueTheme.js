@@ -2,7 +2,9 @@ export const BlueTheme = {
   colors: {
     backgroundTable: 'rgb(238, 238, 238)',
     label: 'rgb(85, 85, 85)',
-    border: '#47A8BD'
+    border: '#0A7B96',
+    menuBase: '#47A8BD',
+    menuSecond: '#0A7B96'
   },
   fonts: {
     defaultFont: "'Titillium', sans-serif",

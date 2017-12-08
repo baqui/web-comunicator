@@ -2,7 +2,9 @@ export const DefaultTheme = {
   colors: {
     backgroundTable: 'rgb(238, 238, 238)',
     label: 'rgb(85, 85, 85)',
-    border: '#1E3888',
+    border: 'rgb(57, 56, 88)',
+    menuBase: 'rgb(78, 120, 155)',
+    menuSecond: 'rgb(57, 56, 88)'
   },
   fonts: {
     defaultFont: "'Titillium', sans-serif",
