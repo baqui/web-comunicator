@@ -24,10 +24,10 @@ class CommunicatorLayout extends PureComponent {
   render = () => (
     <ThemeProvider theme={ selectTheme( this.props.theme ) } >
       <MuiThemeProvider muiTheme={muiTheme} className="mui-custom">
-        <section className="main-page-wrapper">
+        <div className="main-page-wrapper">
           <Nav links={comunicatorLinks} />
           { this.props.children }
-        </section>
+        </div>
       </MuiThemeProvider>
     </ThemeProvider>
   )

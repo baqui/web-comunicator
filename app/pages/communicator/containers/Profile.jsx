@@ -18,11 +18,11 @@ class Profile extends PureComponent {
 
   render() {
     return (
-      <section className={this.props.className}>
+      <div className={this.props.className}>
         <EditProfile />
         <EditColors />
         <EditLanguage />
-      </section>
+      </div>
     )
   }
 }

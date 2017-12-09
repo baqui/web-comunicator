@@ -26,9 +26,9 @@ class EditProfile extends PureComponent {
 
   render() {
     return (
-      <section className={this.props.className}>
+      <div className={this.props.className}>
         <Profile profile={profileData} />
-      </section>
+      </div>
     )
   }
 }

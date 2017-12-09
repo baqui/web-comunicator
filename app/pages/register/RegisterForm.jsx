@@ -23,7 +23,7 @@ class RegisterForm extends React.Component {
   render(){
     return (
       <MuiThemeProvider muiTheme={muiTheme} className='mui-custom'>
-        <section className={this.props.className} >
+        <div className={this.props.className} >
           <form id='login-form' onSubmit={ this.handleSubmit } >
             <TextField
               name='email'
@@ -51,7 +51,7 @@ class RegisterForm extends React.Component {
             <br />
             <RaisedButton label='Register' primary type='submit' style={{width: '100%', marginTop: '20px'}} />
           </form>
-        </section>
+        </div>
       </MuiThemeProvider>
     )
   }

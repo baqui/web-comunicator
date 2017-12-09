@@ -31,12 +31,12 @@ class SendMessage extends PureComponent {
 
   render() {
     return (
-      <section className={this.props.className}>
+      <div className={this.props.className}>
         <TextInput placeholder={t('write_message')} innerRef={input => this.input = input} />
         <ActionIcon type='file' handleClick={ () => {console.log("HandleClick action")}} />
         <ActionIcon type='emoticon' handleClick={ () => {console.log("HandleClick action")}} />
         <ActionIcon type='image' handleClick={ () => {console.log("HandleClick action")}} />
-      </section>
+      </div>
     )
   }
 

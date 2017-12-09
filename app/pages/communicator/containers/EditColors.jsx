@@ -27,9 +27,9 @@ class EditColors extends PureComponent {
 
   render() {
     return (
-      <section className={ this.props.className }>
+      <div className={ this.props.className }>
         <Colors options={ colorsKit } switchTheme={this.switchTheme} theme={ this.props.theme } />
-      </section>
+      </div>
     )
   }
 

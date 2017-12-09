@@ -12,10 +12,10 @@ import { navigationLinks } from '../utils/consts';
 export const MainLayout = (props) => (
   <ThemeProvider theme={ selectTheme('default') }>
     <MuiThemeProvider muiTheme={muiTheme} className="mui-custom">
-      <section className="main-page-wrapper">
+      <div className="main-page-wrapper">
         <Nav links={navigationLinks} />
         { props.children }
-      </section>
+      </div>
     </MuiThemeProvider>
   </ThemeProvider>
 )

@@ -20,11 +20,11 @@ class CommunicatorPage extends PureComponent {
 
   render() {
     return (
-      <section id="communicator" className={this.props.className}>
+      <div id="communicator" className={this.props.className}>
         <Contacts />
         <Messages />
         <Profile />
-      </section>
+      </div>
     )
   }
 }

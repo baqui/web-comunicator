@@ -38,7 +38,7 @@ class Contacts extends PureComponent {
 
   render() {
     return (
-      <section className={this.props.className}>
+      <div className={this.props.className}>
         { this.props.contactsList.map( a => (
           <Contact {...a.toJS() }
                    key={a.id}
@@ -46,7 +46,7 @@ class Contacts extends PureComponent {
                    isActive={ a.id == this.props.activeUserId }
           />
         ))}
-      </section>
+      </div>
     )
   }
 

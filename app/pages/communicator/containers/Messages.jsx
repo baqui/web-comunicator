@@ -25,7 +25,7 @@ class Messages extends PureComponent {
 
   render() {
     return (
-      <section className={this.props.className}>
+      <div className={this.props.className}>
         <MessagesContainer>
           { this.props.messages.map( (message, key) => {
             switch(message.type) {
@@ -36,7 +36,7 @@ class Messages extends PureComponent {
           })}
         </MessagesContainer>
         <SendMessage />
-      </section>
+      </div>
     )
   }
 }
