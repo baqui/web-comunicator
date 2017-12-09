@@ -33,10 +33,10 @@ class EditLanguage extends Component {
     )
   }
 
-  switchLanguage(event, index, value){
-    this.props.changeLanguage(value);
+  switchLanguage(event){
+    this.props.changeLanguage(event.target.value);
     if( isLocalStorageAvailable() ){
-      localStorage.setItem('language', value );
+      localStorage.setItem('language', event.target.value );
     }
   }
 }

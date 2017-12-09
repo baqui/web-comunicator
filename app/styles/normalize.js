@@ -258,7 +258,6 @@ injectGlobal`
 
   html{
     font-size: 16px;
-    color: $default-font-color;
     font-family: 'Titillium', sans-serif;
     ${breakpoint.s`
       font-size: 20px;

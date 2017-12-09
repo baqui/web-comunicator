@@ -25,6 +25,7 @@ export const PanelHeader = styled.div`
   width: 100%;
   position: relative;
   padding: 5px;
+  text-align: left;
   > h3 {
     font-size: 15px;
     line-height: 1.2;

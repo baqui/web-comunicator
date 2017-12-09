@@ -11,16 +11,11 @@ const Language = ({className, options, switchLanguage, chosenLanguage }) => (
     <PanelHeader>
       <h3>{ t('change_language') }</h3>
     </PanelHeader>
-    <SwitchPanel>
-      <SelectField
-          value={chosenLanguage}
-          onChange={switchLanguage}
-      >
-        { options.map( (language, i) => (
-          <MenuItem key={i} value={ language.code } primaryText={ language.name } />
-        ))}
-      </SelectField>
-    </SwitchPanel>
+    <select onChange={switchLanguage} value={ chosenLanguage } >
+      { options.map( (language, i) => (
+        <option key={i} value={ language.code }>{language.name}</option>
+      ))}
+    </select>
   </div>
 )
 
@@ -31,6 +26,21 @@ export default styled(Language)`
   font-size: 0;
   box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
   overflow: hidden;
+  text-align: center;
+  select {
+    width: 80%;
+    height: 30px;
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid gray;
+    margin: 20px 0;
+    font-size: 16px;
+    option {
+      font-size: 16px;
+    }
+  }
 `
 
 const SwitchPanel = styled.div`
