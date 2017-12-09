@@ -5,24 +5,7 @@
   "license": "-",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config config/webpack.config.js",
-    "client:dev": "webpack-dashboard -t 'Marketplace LSYP' -- webpack-dev-server --config config/webpack.config.js",
-    "client:watch": "webpack --config config/webpack.config.js",
-    "client:build": "npm run clean && cross-env NODE_ENV=\"production\" webpack --config config/webpack.config.js",
-    "client:preview": "npm run clean && cross-env NODE_ENV=\"production\" webpack-dev-server --config config/webpack.config.js",
-    "server:watch": "cross-env SERVER_RENDER=\"true\" webpack --config webpack.config.js",
-    "server:restart": "NODE_ENV=\"production\" nodemon ./config/server.js",
-    "server:build": "cross-env SERVER_RENDER=\"true\" cross-env NODE_ENV=\"production\" webpack --config config/webpack.config.js",
-    "server:dev": "npm run clean && concurrently --prefix \"[{name}]\" --names \"webpack-server,watch-server\" --kill-others \"npm run server:watch\" \"npm run server:restart\"",
-    "universal:dev": "concurrently --prefix \"[{name}]\" --names \"webpack-server,webpack-client,watch-server\" --kill-others \"npm run server:watch\" \"npm run client:watch\" \"npm run server:restart\"",
-    "universal:build": "npm run client:build && npm run server:build",
-    "server": "npm run server:build && NODE_ENV=\"production\" node ./config/server.js",
-    "clean": "rm -rf ./dist/*",
-    "lint-hook": "eslint ./app/ ./*.js -f table --ext .js --ext .jsx",
-    "lint": "npm run lint-hook --silent || true",
-    "hook-add": "prepush install",
-    "hook-remove": "prepush remove",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --config config/webpack.config.js"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
@@ -68,7 +51,6 @@
     "axios": "0.17.1",
     "babel-polyfill": "^6.23.0",
     "babel-runtime": "^6.6.1",
-    "bourbon-neat": "^2.0.0",
     "classnames": "^2.2.5",
     "cookie-parser": "^1.4.3",
     "es6-promise": "^4.1.1",
@@ -100,8 +82,5 @@
     "type": "git",
     "url": "git@github.com:baqui/web-comunicator.git"
   },
-  "author": "Wojciech Bakłażec",
-  "prepush": [
-    "npm run lint-hook --silent"
-  ]
+  "author": "Wojciech Bakłażec"
 }

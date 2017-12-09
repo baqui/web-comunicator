@@ -4,9 +4,9 @@ import AVATAR_PLACEHOLDER from '../../../assets/images/avatar-placeholder.png';
 import {grid} from '../../../styles/grid';
 import t from '../../../utils/translate';
 
-const Contact = ({ className, email, name, status, avatar }) => {
+const Contact = ({ className, email, name, status, avatar, handleClick, isActive }) => {
   return (
-    <div className={className}>
+    <div className={className} onClick={handleClick} >
       <Avatar>
         <img src={avatar || AVATAR_PLACEHOLDER} alt="avatar" />
       </Avatar>
@@ -71,7 +71,7 @@ export default styled(Contact)`
   padding: 8px 0;
   margin-bottom: .5rem;
   box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
-  background: white;
+  background: ${ props => props.isActive ? '#e3e1e9' : 'white'};
   cursor: pointer;
   transition: background .3s;
   border-left: 4px solid ${ props => props.theme.colors.border };

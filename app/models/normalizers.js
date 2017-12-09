@@ -1,8 +1,9 @@
 import { schema, normalize } from 'normalizr';
 import { Map, List } from 'immutable';
-import { Contact } from './records';
+import { Contact, Message } from './records';
 
 const contact = new schema.Entity('contacts', {}, { idAttribute: 'id'});
+const message = new schema.Entity('messages', {}, { idAttribute: 'id'});
 
 export const normalizedContactsListResponse = (response) => {
   let normalized = normalize(response.data, [contact]);
@@ -15,27 +16,15 @@ const toContact = (obj) => (
   })
 );
 
-const normalizedToImmutable = (normalized) => {
-  if (!normalized.entities) {
-    throw "It's not normalized...";
-  }
-  return Map(mapValues(normalized.entities, (value, name) => {
-    switch(name) {
-    case 'users':
-      return undefined //example usage: Map( mapValues(value, toOffer) );
-    default:
-      throw "Unrecognized normalized entity " + name;
-    }
-  }));
+export const normalizedMessagesListResponse = (response) => {
+  let normalized = normalize(response.data, [contact]);
+  return List( normalized.result.map(id => toMessage( normalized.entities.contacts[id]) ) );
 }
 
-const mapValues = (object, mapper) => {
-  let result = {};
-  for (let property in object) {
-    if (object.hasOwnProperty(property)) {
-      result[property] = mapper(object[property], property);
-    }
-  }
+export const normalizedMessage = (message) => ( toMessage(message) );
 
-  return result;
-}
+const toMessage = (obj) => (
+  new Message({
+    ...obj
+  })
+);

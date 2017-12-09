@@ -8,18 +8,9 @@ import { selectTheme } from '../utils/theme';
 import { getChosenTheme } from '../selectors/userPreferences';
 import {muiTheme} from './BasicTheme';
 import Nav from '../components/Nav/Nav';
+import { comunicatorLinks } from '../utils/consts';
 import '../styles/normalize';
 
-
-const links = [
-  {
-    name: 'Home',
-    url: '/',
-    title: '',
-    action: '',
-    internal: false
-  }
-];
 
 const mapStateToProps = (state) => ({
   theme: getChosenTheme(state)
@@ -34,7 +25,7 @@ class CommunicatorLayout extends PureComponent {
     <ThemeProvider theme={ selectTheme( this.props.theme ) } >
       <MuiThemeProvider muiTheme={muiTheme} className="mui-custom">
         <section className="main-page-wrapper">
-          <Nav links={links} />
+          <Nav links={comunicatorLinks} />
           { this.props.children }
         </section>
       </MuiThemeProvider>

@@ -14,3 +14,10 @@ export const Contact = new Record({
   avatar: '',
   status: false
 });
+
+export const Message = new Record({
+  id: -1,
+  message: '',
+  type: '',
+  userID: -1
+});

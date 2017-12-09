@@ -7,25 +7,15 @@ import { selectTheme } from '../utils/theme';
 import { muiTheme } from './BasicTheme';
 import '../styles/normalize';
 import Nav from '../components/Nav/Nav';
-
-const example_link = {
-  name: 'Login',
-  url: '/login',
-  title: '',
-  action: ''
-}
+import { navigationLinks } from '../utils/consts';
 
 export const MainLayout = (props) => (
   <ThemeProvider theme={ selectTheme('default') }>
     <MuiThemeProvider muiTheme={muiTheme} className="mui-custom">
       <section className="main-page-wrapper">
-        <Nav links={[example_link]} />
+        <Nav links={navigationLinks} />
         { props.children }
       </section>
     </MuiThemeProvider>
   </ThemeProvider>
 )
-
-MainLayout.propTypes = {
-  children: PropTypes.element.isRequired
-}

@@ -3,12 +3,16 @@ import {connect} from 'react-redux';
 import styled from 'styled-components';
 import {TextBanner} from '../../../components/TextBanner/TextBanner';
 import {MessagesContainer} from '../components/Messages';
+import {TextMessage} from '../components/Message';
 import SendMessage from './SendMessage';
 import { getChosenLanguage } from '../../../selectors/userPreferences';
-
+import { getMessagesList } from '../../../selectors/messages';
+import { getCurrentUserId } from '../../../selectors/users';
 
 const mapStateToProps = (state) => ({
-  language: getChosenLanguage(state)
+  language: getChosenLanguage(state),
+  messages: getMessagesList(state),
+  currentUserId: getCurrentUserId(state)
 });
 const mapDispatchToProps = (dispatch) => ({});
 
@@ -19,15 +23,17 @@ class Messages extends PureComponent {
     super(props);
   }
 
-  componentDidMount() {
-    console.log("Messages DidMount");
-  }
-
   render() {
     return (
       <section className={this.props.className}>
         <MessagesContainer>
-          MESSEGES CONTAINER
+          { this.props.messages.map( (message, key) => {
+            switch(message.type) {
+            case 'text':
+              const isMine = message.userID == this.props.currentUserId;
+              return <TextMessage key={key} message={message.message} isMine={isMine} />
+            }
+          })}
         </MessagesContainer>
         <SendMessage />
       </section>

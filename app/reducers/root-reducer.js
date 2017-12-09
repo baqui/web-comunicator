@@ -1,11 +1,13 @@
 import {combineReducers} from 'redux';
 
-import {user} from './user';
 import {userPreferences} from './userPreferences';
 import {contacts} from './contacts';
+import {messages} from './messages';
+import {users} from './users';
 
 export default combineReducers({
-  user,
   userPreferences,
-  contacts
+  contacts,
+  messages,
+  users
 });

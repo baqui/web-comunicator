@@ -4,7 +4,9 @@ export const BlueTheme = {
     label: 'rgb(85, 85, 85)',
     border: '#0A7B96',
     menuBase: '#47A8BD',
-    menuSecond: '#0A7B96'
+    menuSecond: '#0A7B96',
+    myMessage: '#0A7B96',
+    otherMessage: '#47A8BD'
   },
   fonts: {
     defaultFont: "'Titillium', sans-serif",

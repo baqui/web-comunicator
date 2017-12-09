@@ -4,7 +4,9 @@ export const OrangeTheme = {
     label: 'rgb(85, 85, 85)',
     border: '#C0671E',
     menuBase: '#FFAD69',
-    menuSecond: '#C0671E'
+    menuSecond: '#C0671E',
+    myMessage: '#C0671E',
+    otherMessage: '#FFAD69'
   },
   fonts: {
     defaultFont: "'Titillium', sans-serif",

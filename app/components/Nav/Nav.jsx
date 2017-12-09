@@ -37,15 +37,6 @@ export default class Nav extends React.Component {
   }
 }
 
-Nav.propTypes = {
-  links: PropTypes.arrayOf(PropTypes.object)
-}
-
-Nav.defaultProps = {
-  links: [{}]
-}
-
-
 const NavBrandWrapper = styled.div`
   width: 100%;
   position: relative;

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { getChosenLanguage, getChosenTheme } from '../../../selectors/userPreferences';
 import { switchTheme } from '../../../actions/user-preferences';
 import { colorsKit } from '../../../utils/consts';
+import { isLocalStorageAvailable } from '../../../utils/loadState';
 import Colors from '../components/Colors';
 
 const mapStateToProps = (state) => ({
@@ -24,20 +25,19 @@ class EditColors extends PureComponent {
     this.switchTheme = this.switchTheme.bind(this);
   }
 
-  componentDidMount() {
-    console.log("Editprofile didmount");
-  }
-
   render() {
     return (
       <section className={ this.props.className }>
-        <Colors options={ colorsKit } switchTheme={this.switchTheme} />
+        <Colors options={ colorsKit } switchTheme={this.switchTheme} theme={ this.props.theme } />
       </section>
     )
   }
 
   switchTheme(theme){
     this.props.changeTheme(theme);
+    if( isLocalStorageAvailable() ){
+      localStorage.setItem('theme', theme );
+    }
   }
 }
 

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { languagesAvailable } from '../../../utils/consts';
 import { getChosenLanguage } from '../../../selectors/userPreferences';
 import { switchLanguage } from '../../../actions/user-preferences';
+import { isLocalStorageAvailable } from '../../../utils/loadState';
 import Language from '../components/Language';
 
 const mapStateToProps = (state) => ({
@@ -23,10 +24,6 @@ class EditLanguage extends Component {
     this.switchLanguage = this.switchLanguage.bind(this);
   }
 
-  componentDidMount() {
-    console.log("EditLanguage didmount");
-  }
-
   render() {
 
     return (
@@ -38,6 +35,9 @@ class EditLanguage extends Component {
 
   switchLanguage(event, index, value){
     this.props.changeLanguage(value);
+    if( isLocalStorageAvailable() ){
+      localStorage.setItem('language', value );
+    }
   }
 }
 

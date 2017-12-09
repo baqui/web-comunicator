@@ -3,7 +3,6 @@ import { getChosenLanguage } from '../selectors/userPreferences';
 
 export default (message) => {
   const chosen_language = getChosenLanguage(store.getState());
-  console.log("TRANSLATE ", chosen_language);
   return translation[chosen_language][message] ? translation[chosen_language][message] : translation['en'][message];
 }
 

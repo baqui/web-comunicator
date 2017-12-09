@@ -11,7 +11,7 @@ const Colors = ({className, options, switchTheme, theme }) => (
     </PanelHeader>
     <ColorsList>
       { options.map( (color, i) => {
-        const isActive = theme === color.theme;
+        const isActive = theme == color.theme;
         return <ColorItem
                   key={i} { ...color }
                   active={ isActive }

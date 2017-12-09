@@ -24,10 +24,6 @@ class EditProfile extends PureComponent {
     super(props);
   }
 
-  componentDidMount() {
-    console.log("Editprofile didmount");
-  }
-
   render() {
     return (
       <section className={this.props.className}>

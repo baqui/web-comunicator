@@ -10,6 +10,7 @@ export const MessagesContainer = styled.div`
   background: white;
   width: 100%;
   height: calc(100% - 100px);
+  overflow-y: auto;
   box-shadow: 0 10px 20px rgba(0,0,0,.19), 0 6px 6px rgba(0,0,0,.23);
   box-sizing: border-box;
   border-left: 4px solid ${ props => props.theme.colors.border };

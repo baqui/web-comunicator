@@ -11,3 +11,12 @@ export const languagesAvailable = [
   { code: 'en', name: 'English' },
   { code: 'es', name: 'Español' }
 ]
+
+export const navigationLinks = [
+  {name: 'Login', url: '/login'},
+  {name: 'Register', url: '/register'}
+]
+
+export const comunicatorLinks = [
+  {name: 'Home', url: '/', internal: false}
+]

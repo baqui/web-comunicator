@@ -18,10 +18,6 @@ class CommunicatorPage extends PureComponent {
     super(props);
   }
 
-  componentDidMount() {
-    console.log("CommunicatorPage DidMount");
-  }
-
   render() {
     return (
       <section id="communicator" className={this.props.className}>
@@ -40,7 +36,7 @@ export default styled(CommunicatorPage)`
   ${Contacts} {
     ${grid.breakpoints({df: 3}, 12, '1rem')};
     height: 100%;
-    //overflow-y: scroll;
+    overflow-y: auto;
   }
   ${Messages} {
     ${grid.breakpoints({df: 6}, 12, '1rem')};

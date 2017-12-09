@@ -16,10 +16,6 @@ class Profile extends PureComponent {
     super(props);
   }
 
-  componentDidMount() {
-    console.log("Profile DidMount");
-  }
-
   render() {
     return (
       <section className={this.props.className}>

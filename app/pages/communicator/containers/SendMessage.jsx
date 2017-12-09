@@ -5,32 +5,50 @@ import styled from 'styled-components';
 import t from '../../../utils/translate';
 import { getChosenLanguage } from '../../../selectors/userPreferences';
 import ActionIcon, {TextInput} from '../components/Messages';
+import { getCurrentUserId } from '../../../selectors/users';
+import { sendMessage } from '../../../actions/messages-actions';
 
 const mapStateToProps = (state) => ({
-  language: getChosenLanguage(state)
+  language: getChosenLanguage(state),
+  currentUserId: getCurrentUserId(state)
 });
-const mapDispatchToProps = (dispatch) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  sendUserMessage: (message) => dispatch( sendMessage(message) )
+});
 
 @connect(mapStateToProps, mapDispatchToProps)
 class SendMessage extends PureComponent {
 
   constructor(props) {
     super(props);
+
+    this.handleSend = this.handleSend.bind(this);
   }
 
   componentDidMount() {
-    console.log("SendMessage DidMount");
+    document.addEventListener('keypress', this.handleSend);
   }
 
   render() {
     return (
       <section className={this.props.className}>
-        <TextInput placeholder={t('write_message')} />
+        <TextInput placeholder={t('write_message')} innerRef={input => this.input = input} />
         <ActionIcon type='file' handleClick={ () => {console.log("HandleClick action")}} />
         <ActionIcon type='emoticon' handleClick={ () => {console.log("HandleClick action")}} />
         <ActionIcon type='image' handleClick={ () => {console.log("HandleClick action")}} />
       </section>
     )
+  }
+
+  handleSend(target){
+    if(target.charCode === 13) {
+      this.props.sendUserMessage({
+        message: this.input.value,
+        type: 'text',
+        userID: this.props.currentUserId
+      });
+      this.input.value = '';
+    }
   }
 }
 

@@ -5,16 +5,23 @@ import styled from 'styled-components';
 
 import { getChosenLanguage } from '../../../selectors/userPreferences';
 import { getContactsList } from '../../../selectors/contacts';
+import { getActiveUser } from '../../../selectors/messages';
+
 import { contactsListFetchData } from '../../../actions/contacts-actions';
+import { messagesListFetchData, setActiveUser } from '../../../actions/messages-actions';
 
 import Contact from '../components/Contact';
 
 const mapStateToProps = (state) => ({
   contactsList: getContactsList(state),
-  language: getChosenLanguage(state)
+  language: getChosenLanguage(state),
+  activeUserId: getActiveUser(state)
 });
+
 const mapDispatchToProps = (dispatch) => ({
-  getContacts: () => dispatch( contactsListFetchData() )
+  getContacts: () => dispatch( contactsListFetchData() ),
+  getMessages: (userID) => dispatch( messagesListFetchData(userID) ),
+  selectActiveUser: (userID) => dispatch( setActiveUser(userID) )
 });
 
 @connect(mapStateToProps, mapDispatchToProps)
@@ -22,6 +29,7 @@ class Contacts extends PureComponent {
 
   constructor(props) {
     super(props);
+    this.handleClick = this.handleClick;
   }
 
   componentDidMount() {
@@ -31,9 +39,20 @@ class Contacts extends PureComponent {
   render() {
     return (
       <section className={this.props.className}>
-        { this.props.contactsList.map( a => <Contact key={a.id} {...a.toJS() } />) }
+        { this.props.contactsList.map( a => (
+          <Contact {...a.toJS() }
+                   key={a.id}
+                   handleClick={this.handleClick.bind(this, a.id)}
+                   isActive={ a.id == this.props.activeUserId }
+          />
+        ))}
       </section>
     )
+  }
+
+  handleClick(userID){
+    this.props.getMessages(userID);
+    this.props.selectActiveUser(userID);
   }
 }
 

@@ -10,8 +10,8 @@ export default class CommunicatorRestClient {
     return this.makeRequest( urls.CONTACTS, { method: 'GET' });
   }
 
-  static getSelfUser() {
-    return this.makeRequest( urls.USER_AUTH, { method: 'GET' } );
+  static getAllMessages(userID) {
+    return this.makeRequest( `${urls.MESSAGES}/${userID}`, { method: 'GET' } );
   }
 
   static makeRequest(subPath, options) {
