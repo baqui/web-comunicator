@@ -29,4 +29,17 @@ class Profile extends PureComponent {
 
 export default styled(Profile)`
   box-sizing: border-box;
+  position: relative;
+  ${EditProfile}{
+    position: ${ props => props.theme.layout.editProfile.position };
+    top: ${ props => props.theme.layout.editProfile.top };
+  }
+  ${EditColors}{
+    position: ${ props => props.theme.layout.editColors.position };
+    top: ${ props => props.theme.layout.editColors.top };
+  }
+  ${EditLanguage}{
+    position: ${ props => props.theme.layout.editLanguage.position };
+    top: ${ props => props.theme.layout.editLanguage.top };
+  }
 `

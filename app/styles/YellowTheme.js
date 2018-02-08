@@ -15,5 +15,23 @@ export const YellowTheme = {
       golden: 1.618,
       minorSeventh: 1.778,
     }
+  },
+  layout: {
+    contact: '0',
+    editProfile: {
+      position: 'static',
+      top: '0',
+    },
+    editColors: {
+      position: 'static',
+      top: '0',
+    },
+    editLanguage: {
+      position: 'static',
+      top: '0',
+    },
+    sendMessage: {
+      bottom: '100px'
+    }
   }
 }

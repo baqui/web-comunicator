@@ -75,6 +75,8 @@ export default styled(Contact)`
   cursor: pointer;
   transition: background .3s;
   border-left: 4px solid ${ props => props.theme.colors.border };
+  transform-origin: 13% 67%;
+  transform: rotate(${ props => props.theme.layout.contact }deg);
   &:hover {
     background: #e3e1e9;
   }

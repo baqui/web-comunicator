@@ -15,5 +15,23 @@ export const BlueTheme = {
       golden: 1.618,
       minorSeventh: 1.778,
     }
+  },
+  layout: {
+    contact: '5',
+    editProfile: {
+      position: 'absolute',
+      top: '250px',
+    },
+    editColors: {
+      position: 'absolute',
+      top: '0',
+    },
+    editLanguage: {
+      position: 'absolute',
+      top: '130px',
+    },
+    sendMessage: {
+      bottom: '30px'
+    }
   }
 }

@@ -46,6 +46,6 @@ export default styled(Messages)`
   position: relative;
   ${SendMessage} {
     position: absolute;
-    bottom: 30px;
+    bottom: ${ props => props.theme.layout.sendMessage.bottom };
   }
 `

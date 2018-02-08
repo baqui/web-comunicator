@@ -15,5 +15,23 @@ export const RedTheme = {
       golden: 1.618,
       minorSeventh: 1.778,
     }
+  },
+  layout: {
+    contact: '0',
+    editProfile: {
+      position: 'absolute',
+      top: '250px',
+    },
+    editColors: {
+      position: 'absolute',
+      top: '148px',
+    },
+    editLanguage: {
+      position: 'absolute',
+      top: '30px',
+    },
+    sendMessage: {
+      bottom: '30px'
+    }
   }
 }
