@@ -16,7 +16,8 @@ const plugins = [
     'process.env': {
       'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     },
-    API_URL: JSON.stringify('localhost:3000')
+    API_URL: JSON.stringify('http://localhost:8080'),
+    WS_URL: JSON.stringify('ws://localhost:8080')
   })
 ];
 

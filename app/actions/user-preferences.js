@@ -1,12 +1,13 @@
-import { SWITCH_LANGUAGE, SWITCH_THEME } from './actions';
+import types from './actions';
 import RestClient from '../models/RestClient.js';
+import WSClient from '../models/WSClient';
 
 export const switchLanguage = (language) => ({
-  type: SWITCH_LANGUAGE,
+  type: types.SWITCH_LANGUAGE,
   language
 })
 
 export const switchTheme = (theme) => ({
-  type: SWITCH_THEME,
+  type: types.SWITCH_THEME,
   theme
 })

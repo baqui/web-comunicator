@@ -2,7 +2,7 @@ import { Map, List } from 'immutable';
 
 import types from '../actions/actions';
 
-export const contacts = ( state = Map({
+export const login = ( state = Map({
   contacts: List([])
 }), action ) => {
   switch (action.type) {

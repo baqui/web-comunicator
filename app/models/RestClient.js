@@ -14,6 +14,16 @@ export default class CommunicatorRestClient {
     return this.makeRequest( `${urls.MESSAGES}/${userID}`, { method: 'GET' } );
   }
 
+  static register(data) {
+    const options = { method: 'POST', data };
+    return this.makeRequest( urls.REGISTER, options );
+  }
+
+  static login(data) {
+    const options = { method: 'POST', data };
+    return this.makeRequest(urls.LOGIN, options );
+  }
+
   static makeRequest(subPath, options) {
     if (options.method !== 'GET') {
       const headers = options.headers || {};

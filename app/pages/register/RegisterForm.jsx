@@ -2,10 +2,20 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { connect } from 'react-redux';
+import { register } from '../../actions/login-actions';
 import styled from 'styled-components';
-
 import {muiTheme} from '../../layouts/BasicTheme';
 
+const mapStateToProps = () => ({
+
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  register: (data) => dispatch( register(data) )
+})
+
+@connect(mapStateToProps, mapDispatchToProps)
 class RegisterForm extends React.Component {
 
   constructor(props){
@@ -15,20 +25,17 @@ class RegisterForm extends React.Component {
       password: '',
       repeat_password: ''
     }
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render(){
     return (
       <MuiThemeProvider muiTheme={muiTheme} className='mui-custom'>
         <div className={this.props.className} >
-          <form id='login-form' onSubmit={ this.handleSubmit } >
+          <form id='register-form' onSubmit={ this.handleSubmit } >
             <TextField
-              name='email'
+              name='login'
               floatingLabelText='Email'
-              type='email'
+              type='text'
               style={{width: '100%'}}
               onChange={ this.handleChange }
             />
@@ -56,14 +63,21 @@ class RegisterForm extends React.Component {
     )
   }
 
-  handleChange(event){
+  isPwdConfirmationValid = (pwd, conf) => pwd === conf
+
+  handleChange = (event) => {
     const [ name, value ] = [event.target.name, event.target.value ];
     this.setState({ [name]: value })
   }
 
-  handleSubmit(event){
+  handleSubmit = (event) => {
     event.preventDefault();
-    window.location = '/communicator';
+    // TODO add registration here
+    if( this.isPwdConfirmationValid() ){
+      console.log("password valid");
+    }
+    const [jid, password] = [this.state.email, this.state.password]
+    this.props.register({ jid, password });
   }
 }
 

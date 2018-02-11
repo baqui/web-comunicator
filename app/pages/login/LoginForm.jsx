@@ -2,10 +2,19 @@ import React from 'react';
 import TextField from 'material-ui/TextField';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { connect } from 'react-redux';
+import { login } from '../../actions/login-actions';
 import styled from 'styled-components';
 
 import {muiTheme} from '../../layouts/BasicTheme';
 
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = (dispatch) => ({
+  login: (data) => dispatch( login(data) )
+})
+
+@connect(mapStateToProps, mapDispatchToProps)
 class LoginForm extends React.Component {
 
   constructor(props){
@@ -15,8 +24,6 @@ class LoginForm extends React.Component {
       password: '',
     }
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   render(){
@@ -27,7 +34,7 @@ class LoginForm extends React.Component {
             <TextField
               name='email'
               floatingLabelText='Email'
-              type='email'
+              type='text'
               style={{width: '100%'}}
               onChange={ this.handleChange }
             />
@@ -47,14 +54,16 @@ class LoginForm extends React.Component {
     )
   }
 
-  handleChange(event){
+  handleChange = (event) => {
     const [ name, value ] = [event.target.name, event.target.value ];
     this.setState({ [name]: value })
   }
 
-  handleSubmit(event){
+  handleSubmit = (event) => {
     event.preventDefault();
-    window.location = '/communicator';
+
+    const [jid, password] = [this.state.email, this.state.password]
+    this.props.login({ jid, password });
   }
 }
 

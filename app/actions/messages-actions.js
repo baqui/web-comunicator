@@ -1,9 +1,10 @@
-import {SEND_MESSAGE, MESSAGES_FETCH_SUCCESS, SET_ACTIVE_USER} from './actions';
+import types from './actions';
+import WSClient from '../models/WSClient';
 import RestClient from '../models/RestClient.js';
 import {normalizedMessagesListResponse, normalizedMessage} from '../models/normalizers.js';
 
 export const messagesListFetchSuccess = (messages) => ({
-  type: MESSAGES_FETCH_SUCCESS,
+  type: types.MESSAGES_FETCH_SUCCESS,
   messages: normalizedMessagesListResponse(messages)
 });
 
@@ -21,11 +22,11 @@ export const messagesListFetchData = (userID) => {
 };
 
 export const setActiveUser = (userID) => ({
-  type: SET_ACTIVE_USER,
+  type: types.SET_ACTIVE_USER,
   userID
 })
 
 export const sendMessage = (message) => ({
-  type: SEND_MESSAGE,
+  type: types.SEND_MESSAGE,
   message: normalizedMessage(message)
 })

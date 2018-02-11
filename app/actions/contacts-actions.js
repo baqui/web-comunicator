@@ -1,11 +1,11 @@
-import {CONTACTS_FETCH_SUCCESS} from './actions';
+import types from './actions';
 import RestClient from '../models/RestClient.js';
+import WSClient from '../models/WSClient';
 import {normalizedContactsListResponse} from '../models/normalizers.js';
-
 
 export const contactsListFetchSuccess = (contacts) => {
   return {
-    type: CONTACTS_FETCH_SUCCESS,
+    type: types.CONTACTS_FETCH_SUCCESS,
     contacts: normalizedContactsListResponse(contacts)
   }
 };

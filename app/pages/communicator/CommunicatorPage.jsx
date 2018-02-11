@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react';
 import {connect} from 'react-redux';
 import styled from 'styled-components';
+import WSClient from '../../models/WSClient';
 
 import {grid} from '../../styles/grid';
 
@@ -11,11 +12,50 @@ import Profile from './containers/Profile';
 const mapStateToProps = (state) => ({});
 const mapDispatchToProps = (dispatch) => ({});
 
+const GET_CONTACTS = {
+  "type": "iq",
+  "payload": {
+    "type": "get",
+    "id": "12345",
+    "query-roster": {}
+  }
+}
+
+const ADD_CONTACT = {
+  "type": "iq",
+    "payload": {
+    "id": "12345",
+    "type": "set",
+    "query-roster": {
+      "item": [{
+        "jid": "alicja@localhost",
+        "name": "Alicja z krainy czarów",
+        "group": ["Znajomi"]
+      }]
+    }
+  }
+}
+
 @connect(mapStateToProps, mapDispatchToProps)
 class CommunicatorPage extends PureComponent {
 
   constructor(props) {
     super(props);
+  }
+
+  componentDidMount(){
+    setTimeout( () => {
+      console.log("GET contacts", GET_CONTACTS);
+      WSClient.send(GET_CONTACTS)
+    }, 1000)
+    setTimeout( () => {
+      console.log("Add contact", ADD_CONTACT);
+      WSClient.send(ADD_CONTACT)
+    }, 4000)
+    setTimeout( () => {
+      console.log("GET contacts", GET_CONTACTS);
+      WSClient.send(GET_CONTACTS)
+    }, 8000)
   }
 
   render() {
