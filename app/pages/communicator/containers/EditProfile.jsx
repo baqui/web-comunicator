@@ -6,7 +6,7 @@ import { getChosenLanguage } from '../../../selectors/userPreferences';
 import Profile from '../components/Profile';
 
 const profileData = {
-  name: 'Wojciech Bakłażec',
+  name: 'Example user',
   email: 'test@wp.pl',
   avatar: 'https://s3.amazonaws.com/uifaces/faces/twitter/to_soham/128.jpg',
   status: 'available',

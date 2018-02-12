@@ -26,7 +26,19 @@ export const setActiveUser = (userID) => ({
   userID
 })
 
-export const sendMessage = (message) => ({
+export const sendMessage = (message) => {
+  return (dispatch) => {
+    WSClient.send(message);
+    dispatch( sendRestMessage(message) );
+  }
+}
+
+export const sendRestMessage = (message) => ({
   type: types.SEND_MESSAGE,
+  message: normalizedMessage(message)
+});
+
+export const getMessage = (message) => ({
+  type: types.GET_MESSAGE,
   message: normalizedMessage(message)
 })

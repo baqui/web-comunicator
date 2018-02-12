@@ -5,7 +5,11 @@
   "license": "-",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config config/webpack.config.js"
+    "start": "webpack-dev-server --config config/webpack.config.js",
+    "server:build":
+      "cross-env SERVER_RENDER=\"true\" cross-env NODE_ENV=\"production\" webpack -p --config config/webpack.config.js",
+    "server":
+        "npm run server:build && NODE_ENV=\"production\" node ./config/server.js"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.6",
@@ -82,5 +86,5 @@
     "type": "git",
     "url": "git@github.com:baqui/web-comunicator.git"
   },
-  "author": "Wojciech Bakłażec"
+  "author": "Adrian Kąkol, Szymon Kąkol, Wojciech Bakłażec"
 }

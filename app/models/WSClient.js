@@ -1,4 +1,5 @@
 import { getCookie } from '../utils/cookieHandler';
+import { getMessage } from '../actions/messages-actions';
 
 class WSClient {
 
@@ -7,7 +8,6 @@ class WSClient {
     this._token = token;
     this._jid = jid;
     this.ws = new WebSocket(`${WS_URL}/stream?token=` + token);
-    console.log("WSCIENT CONSTRUCTOR");
     this.ws.onopen = () => this.available();
     this.ws.onclose = () => this.gone();
 
@@ -15,7 +15,7 @@ class WSClient {
   }
 
   available = () => {
-    this.send( {type: 'presence', payload: { from: this._jid }} );
+    this.send( {type: 'presence', payload: { type: 'av', from: this._jid }} );
   }
 
   gone = () => {
@@ -33,7 +33,13 @@ class WSClient {
 
   handleMessage = (event) => {
     const msg = JSON.parse( event.data );
-    console.log("handleMessage", msg);
+    switch(msg.type){
+      case "message":
+        getMessage(msg.body)
+      break;
+    default:
+      console.log(msg);
+    }
   }
 
 }

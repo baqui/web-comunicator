@@ -13,6 +13,8 @@ export const messages = ( state = Map({
     return state.set('activeUser', action.userID );
   case types.SEND_MESSAGE:
     return state.update('messages', messages => messages.push(action.message));
+  case types.GET_MESSAGE:
+    return state.update('messages', messages => messages.push(action.message));
   }
 
   return state;
